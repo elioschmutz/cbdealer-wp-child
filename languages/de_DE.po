@@ -36,8 +36,8 @@ msgstr ""
 
 #: functions.php:41
 msgid "Shipping Insurance"
-msgstr ""
+msgstr "Versicherung"
 
 #: functions.php:42
 msgid "Add shipping insurance"
-msgstr ""
+msgstr "Versicherung bis 5'000 CHF Warenwert hinzufügen"
