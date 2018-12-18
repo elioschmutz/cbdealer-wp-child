@@ -16,7 +16,7 @@ msgstr ""
 
 #. Theme Name of the theme
 msgid "Mantis Child"
-msgstr ""
+msgstr "CBDealer Theme"
 
 #. Theme URI of the theme
 msgid "http://themeforest.net/user/LA-Studio/portfolio?ref=LA-Studio"
@@ -41,3 +41,19 @@ msgstr "Versicherung"
 #: functions.php:42
 msgid "Add shipping insurance"
 msgstr "Versicherung bis 5'000 CHF Warenwert hinzufügen"
+
+#: functions.php:63
+msgid "Express shipping"
+msgstr "Express-Lieferung"
+
+#: functions.php:64
+msgid "Add express shipping"
+msgstr "Express-Lieferung hinzufügen"
+
+#: functions.php:71
+msgid "Registered delivery"
+msgstr "Einschreiben"
+
+#: functions.php:72
+msgid "Add registered delivery"
+msgstr "Einschreiben hinzufügen"

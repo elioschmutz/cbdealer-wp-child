@@ -5,6 +5,10 @@
  *
  */
 
+
+if( is_admin() )
+    require 'class-cbdealer-settings.php';
+
 add_action( 'after_setup_theme', 'mantis_child_theme_setup' );
 add_action( 'wp_enqueue_scripts', 'mantis_child_enqueue_styles', 20);
 
@@ -39,11 +43,12 @@ function is_product_in_cart($product_id) {
 add_action('woocommerce_cart_totals_after_shipping', 'wc_shipping_insurance_note_after_cart');
 add_action('woocommerce_review_order_after_shipping', 'wc_shipping_insurance_note_after_cart');
 function wc_shipping_insurance_note_after_cart() {
-    $shipping_insurance = 661;
-    $express_shipping = 668;
-    $registered_letter = 664;
-
-    if ( ! is_product_in_cart($shipping_insurance) ):
+    $settings = get_option('cbdealer_settings');
+    $shipping_insurance = $settings['delivery_insurance_product_id'] ?? '';
+    $express_shipping = $settings['express_delivery_product_id'] ?? '';
+    $registered_letter = $settings['registered_delivery_product_id'] ?? '';
+    
+    if ( $shipping_insurance && !is_product_in_cart($shipping_insurance) ):
     ?>
         <tr class="shipping">
             <th><?php _e( 'Shipping Insurance', 'mantis-child' ); ?></th>
@@ -51,7 +56,7 @@ function wc_shipping_insurance_note_after_cart() {
         </tr>
     <?php endif;
 
-    if ( ! is_product_in_cart($express_shipping) ):
+    if ( $express_shipping && !is_product_in_cart($express_shipping) ):
     ?>
         <tr class="shipping">
             <th><?php _e( 'Express shipping', 'mantis-child' ); ?></th>
@@ -59,12 +64,11 @@ function wc_shipping_insurance_note_after_cart() {
         </tr>
     <?php endif;
 
-    if ( ! is_product_in_cart($registered_letter) ):
+    if ( $registered_letter && !is_product_in_cart($registered_letter) ):
     ?>
         <tr class="shipping">
-            <th><?php _e( 'Registered letter', 'mantis-child' ); ?></th>
-            <td><a href="?add-to-cart=<?php echo $registered_letter; ?>"><?php _e( 'Add registered letter', 'mantis-child' ); ?> </a></td>
+            <th><?php _e( 'Registered delivery', 'mantis-child' ); ?></th>
+            <td><a href="?add-to-cart=<?php echo $registered_letter; ?>"><?php _e( 'Add registered delivery', 'mantis-child' ); ?> </a></td>
         </tr>
     <?php endif;
 }
-

@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2018-12-17T19:07:10+00:00\n"
-"PO-Revision-Date: 2018-12-17T19:07:10+00:00\n"
+"POT-Creation-Date: 2018-12-19T08:31:53+00:00\n"
+"PO-Revision-Date: 2018-12-19T08:31:53+00:00\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: mantis-child\n"
 
@@ -34,10 +34,26 @@ msgstr ""
 msgid "http://themeforest.net/user/LA-Studio?ref=LA-Studio"
 msgstr ""
 
-#: functions.php:41
+#: functions.php:54
 msgid "Shipping Insurance"
 msgstr ""
 
-#: functions.php:42
+#: functions.php:55
 msgid "Add shipping insurance"
+msgstr ""
+
+#: functions.php:62
+msgid "Express shipping"
+msgstr ""
+
+#: functions.php:63
+msgid "Add express shipping"
+msgstr ""
+
+#: functions.php:70
+msgid "Registered delivery"
+msgstr ""
+
+#: functions.php:71
+msgid "Add registered delivery"
 msgstr ""
