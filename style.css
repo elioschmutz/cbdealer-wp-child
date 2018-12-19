@@ -12,3 +12,41 @@
     Text Domain:    mantis-child
     Domain Path:    /languages/
 */
+
+#masthead {
+    box-shadow: 0px 1px 3px 0px #ddd;
+    border-top: 1em solid #323639;
+}
+.sidebar-inner ul.menu li {
+    margin-bottom: 0;
+}
+.current-cat-parent > .narrow {
+    display: none;
+}
+.current-cat-parent > a,
+.current-cat > a{
+    color: #126E3C;
+    font-weight: bold;
+}
+.section-page-header {
+    background: linear-gradient(175deg, rgba(50,54,57,1) 0%, rgba(50,54,57,1) 50%, rgba(93,97,99,1) 100%);
+}
+.products-list .price,
+.products-grid .price,
+.single-product .single-price-wrapper {
+    // display: none;
+}
+
+.single-product.showProductPrice .single-price-wrapper {
+    display: block;
+}
+button {
+      background-color: #fefefe;
+    padding: 0.2em 1em;
+}
+  
+body .entry-summary .quantity .qty-minus,
+body .entry-summary .quantity .qty-plus {
+    display: block;
+    top: 10px;
+}
