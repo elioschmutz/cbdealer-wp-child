@@ -47,7 +47,7 @@ function wc_shipping_insurance_note_after_cart() {
     $shipping_insurance = $settings['delivery_insurance_product_id'] ?? '';
     $express_shipping = $settings['express_delivery_product_id'] ?? '';
     $registered_letter = $settings['registered_delivery_product_id'] ?? '';
-    
+
     if ( $shipping_insurance && !is_product_in_cart($shipping_insurance) ):
     ?>
         <tr class="shipping">
@@ -72,3 +72,42 @@ function wc_shipping_insurance_note_after_cart() {
         </tr>
     <?php endif;
 }
+
+
+function delivery_time() {
+  echo '<tr><th>' . esc_html__( 'Delivery time', 'mantis-child' ) . '</th><td>3-5 ' . esc_html__( 'days', 'mantis-child' )  . '</td></tr>';
+}
+add_action( 'woocommerce_review_order_before_submit', 'add_checkout_privacy_policy', 9 );
+
+function add_checkout_privacy_policy() {
+
+    woocommerce_form_field( 'age_validation', array(
+        'type'          => 'checkbox',
+        'class'         => array('form-row privacy'),
+        'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+        'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+        'required'      => true,
+        'label'         => __('I agree, that I am at least 18 years old', 'mantis-child'),
+    ));
+
+    woocommerce_form_field( 'newsletter', array(
+        'type'          => 'checkbox',
+        'class'         => array('form-row newsletter'),
+        'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+        'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+        'required'      => false,
+        'label'         => __('I want to subscribe to the newsletter', 'mantis-child'),
+    ));
+}
+
+// Show notice if customer does not tick
+
+add_action( 'woocommerce_checkout_process', 'not_approved_privacy' );
+
+function not_approved_privacy() {
+    if ( ! (int) isset( $_POST['age_validation'] ) ) {
+        wc_add_notice( __( 'Please validate your age', 'mantis-child' ), 'error' );
+    }
+}
+add_action( 'woocommerce_cart_totals_after_shipping', 'delivery_time', 90);
+add_action( 'woocommerce_review_order_after_shipping', 'delivery_time', 90);

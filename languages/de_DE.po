@@ -57,3 +57,23 @@ msgstr "Einschreiben"
 #: functions.php:72
 msgid "Add registered delivery"
 msgstr "Einschreiben hinzufügen"
+
+#: functions.php:78
+msgid "Delivery time"
+msgstr "Lieferzeit"
+
+#: functions.php:78
+msgid "days"
+msgstr "Tage"
+
+#: functions.php:90
+msgid "I agree, that I am at least 18 years old"
+msgstr "Ich bestätige, dass ich mindestens 18 Jahre alt bin"
+
+#: functions.php:99
+msgid "I want to subscribe to the newsletter"
+msgstr "Ja ich möchte mich für den Newsletter eintragen und beim nächsten Einkauf 10% Rabatt sichern (optional)"
+
+#: functions.php:109
+msgid "Please validate your age"
+msgstr "Bitte bestätige dein Alter"
