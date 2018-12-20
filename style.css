@@ -50,3 +50,6 @@ body .entry-summary .quantity .qty-plus {
     display: block;
     top: 10px;
 }
+.woocommerce-shipping-methods input {
+    margin-right: 1em;
+}
