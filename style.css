@@ -53,3 +53,6 @@ body .entry-summary .quantity .qty-plus {
 .woocommerce-shipping-methods input {
     margin-right: 1em;
 }
+.cat-item.cat-item-15 {
+  display: none;
+}
