@@ -111,3 +111,10 @@ function not_approved_privacy() {
 }
 add_action( 'woocommerce_cart_totals_after_shipping', 'delivery_time', 90);
 add_action( 'woocommerce_review_order_after_shipping', 'delivery_time', 90);
+
+add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
+
+function wc_npr_filter_phone( $address_fields ) {
+    $address_fields['billing_phone']['required'] = false;
+    return $address_fields;
+}
