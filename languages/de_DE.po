@@ -40,7 +40,7 @@ msgstr "Versicherung"
 
 #: functions.php:42
 msgid "Add shipping insurance"
-msgstr "Versicherung bis 5'000 CHF Warenwert hinzufügen"
+msgstr "Versicherung bis 5'000 CHF hinzufügen"
 
 #: functions.php:63
 msgid "Express shipping"
