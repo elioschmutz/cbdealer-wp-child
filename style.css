@@ -31,11 +31,6 @@
 .section-page-header {
     background: linear-gradient(175deg, rgba(50,54,57,1) 0%, rgba(50,54,57,1) 50%, rgba(93,97,99,1) 100%);
 }
-.products-list .price,
-.products-grid .price,
-.single-product .single-price-wrapper {
-    // display: none;
-}
 
 .single-product.showProductPrice .single-price-wrapper {
     display: block;
@@ -56,3 +51,14 @@ body .entry-summary .quantity .qty-plus {
 .cat-item.cat-item-15 {
   display: none;
 }
+#sidebar_primary {
+ display: none;
+}
+@media only screen and (min-width: 992px) {
+  .btn-advanced-shop-filter {
+    display: none;
+  }
+  #sidebar_primary {
+    display: block;
+}
+
