@@ -39,6 +39,21 @@ function is_product_in_cart($product_id) {
    return false;
 }
 
+function hook_javascript() {
+    ?>
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118293806-3"></script>
+      <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118293806-3');
+</script>
+ 
+    <?php
+}
+add_action('wp_head', 'hook_javascript');
 
 add_action('woocommerce_cart_totals_after_shipping', 'wc_shipping_insurance_note_after_cart');
 add_action('woocommerce_review_order_after_shipping', 'wc_shipping_insurance_note_after_cart');
