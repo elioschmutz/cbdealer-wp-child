@@ -44,15 +44,15 @@ function hook_javascript() {
        <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118293806-3"></script>
       <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-  gtag('config', 'UA-118293806-3');
-</script>
- 
+          gtag('config', 'UA-118293806-3');
+      </script> 
     <?php
 }
+
 add_action('wp_head', 'hook_javascript');
 
 add_action('woocommerce_cart_totals_after_shipping', 'wc_shipping_insurance_note_after_cart');
@@ -62,12 +62,12 @@ function wc_shipping_insurance_note_after_cart() {
     $shipping_insurance = $settings['delivery_insurance_product_id'] ?? '';
     $express_shipping = $settings['express_delivery_product_id'] ?? '';
     $registered_letter = $settings['registered_delivery_product_id'] ?? '';
-
+    
     if ( $shipping_insurance && !is_product_in_cart($shipping_insurance) ):
     ?>
         <tr class="shipping">
             <th><?php _e( 'Shipping Insurance', 'mantis-child' ); ?></th>
-            <td><a href="?add-to-cart=<?php echo $shipping_insurance; ?>"><?php _e( 'Add shipping insurance', 'mantis-child' ); ?> </a></td>
+            <td><a href="?add-to-cart=<?php echo $shipping_insurance; ?>"><?php printf(esc_html__( 'Add for %s', 'mantis-child' ), get_product_price($shipping_insurance)); ?> </a></td>
         </tr>
     <?php endif;
 
@@ -75,7 +75,7 @@ function wc_shipping_insurance_note_after_cart() {
     ?>
         <tr class="shipping">
             <th><?php _e( 'Express shipping', 'mantis-child' ); ?></th>
-            <td><a href="?add-to-cart=<?php echo $express_shipping; ?>"><?php _e( 'Add express shipping', 'mantis-child' ); ?> </a></td>
+            <td><a href="?add-to-cart=<?php echo $express_shipping; ?>"><?php printf(esc_html__( 'Add for %s', 'mantis-child' ), get_product_price($express_shipping)); ?> </a></td>
         </tr>
     <?php endif;
 
@@ -83,12 +83,15 @@ function wc_shipping_insurance_note_after_cart() {
     ?>
         <tr class="shipping">
             <th><?php _e( 'Registered delivery', 'mantis-child' ); ?></th>
-            <td><a href="?add-to-cart=<?php echo $registered_letter; ?>"><?php _e( 'Add registered delivery', 'mantis-child' ); ?> </a></td>
+            <td><a href="?add-to-cart=<?php echo $registered_letter; ?>"><?php printf(esc_html__( 'Add for %s', 'mantis-child' ), get_product_price($registered_letter)); ?> </a></td>
         </tr>
     <?php endif;
 }
 
-
+function get_product_price( $product_id ) {
+    $product = wc_get_product( $product_id );
+    return wc_price( floatval($product->get_price()), array( 'currency' => get_woocommerce_currency() ) );
+}
 function delivery_time() {
   echo '<tr><th>' . esc_html__( 'Delivery time', 'mantis-child' ) . '</th><td>3-5 ' . esc_html__( 'days', 'mantis-child' )  . '</td></tr>';
 }
