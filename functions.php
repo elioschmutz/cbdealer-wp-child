@@ -93,7 +93,7 @@ function get_product_price( $product_id ) {
     return wc_price( floatval($product->get_price()), array( 'currency' => get_woocommerce_currency() ) );
 }
 function delivery_time() {
-  echo '<tr><th>' . esc_html__( 'Delivery time', 'mantis-child' ) . '</th><td>3-5 ' . esc_html__( 'days', 'mantis-child' )  . '</td></tr>';
+  echo '<tr><th>' . esc_html__( 'Delivery time', 'mantis-child' ) . '</th><td>2-3 ' . esc_html__( 'days', 'mantis-child' )  . '</td></tr>';
 }
 add_action( 'woocommerce_review_order_before_submit', 'add_checkout_privacy_policy', 9 );
 
